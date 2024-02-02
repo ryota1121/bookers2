@@ -1,18 +1,36 @@
-<h2>User info</h2>
-<div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <table class="table table-striped">
-    <tr>
-      <td><h4>name</h4></td>
-      <td><h4><%= @user.name %></h4></td>
-    </tr>
-    <tr>
-      <td><h4>introduction</h4></td>
-      <td><h4></h4></td>
-    </tr>
-  </table>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user.id)%></p>
+<div class="main row justify-content-center">
+  <div class="sidebar col-2">
+   
+  </div>
+  <div class="main-content col-5">
+    <div class="row row-cols">
+      <h2>Books</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+    
+        <% @books.each do |book| %>    
+        <tbody>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td><%= link_to book_path(book.id) do %>
+            <%= book.title %>
+            <% end %></td>
+            <td><%= book.body %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table> 
+    </div>
+  </div>
 </div>
+
+
 
 <% @books.each do |book| %>
 <div>

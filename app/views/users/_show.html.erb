@@ -1,0 +1,15 @@
+<h2>User info</h2>
+<div>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <table class="table table-striped">
+    <tr>
+      <td><h4>name</h4></td>
+      <td><h4><%= user.name %></h4></td>
+    </tr>
+    <tr>
+      <td><h4>introduction</h4></td>
+      <td><h4><%= user.introduction %></h4></td>
+    </tr>
+  </table>
+  <p><%= link_to "プロフィール編集", edit_user_path(user.id)%></p>
+</div>

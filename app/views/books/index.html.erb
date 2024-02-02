@@ -1,22 +1,31 @@
-<h2>Books</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
+<div class="main row justify-content-center">
+  <div class="sidebar col-2">
+    <%= render 'new', book: @books %>
+  </div>
+  <div class="main-content col-5">
+    <div class="row row-cols">
+      <h2>Books</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
     
-  <% @books.each do |book| %>    
-  <tbody>
-    <tr>
-      <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-      <td><%= link_to book_path(book.id) do %>
+        <% @books.each do |book| %>    
+        <tbody>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td><%= link_to book_path(book.id) do %>
             <%= book.title %>
-          <% end %></td>
-      <td><%= book.body %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+            <% end %></td>
+            <td><%= book.body %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table> 
+    </div>
+  </div>
+</div>

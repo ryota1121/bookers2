@@ -1,1 +1,19 @@
 @use '~bootstrap/scss/bootstrap';
+
+.header {
+  background-color: #343a40;
+  font-size: 20px;
+}
+
+.logo {
+  color: #fff;
+}
+
+.container {
+  max-width: 1140px;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+}
