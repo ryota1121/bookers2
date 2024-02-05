@@ -5,15 +5,19 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @Book.user_id = current_user.id
+    @book.user_id = current_user.id
     if @book.save
-      redirect_to books_path
+      flash[:notice] = "投稿に成功しました。"
+      redirect_to book_path(@book.id)
     else
-      render :new
+      @books = Book.all
+      flash[:notice] = "投稿に失敗しました。"
+      render :index
     end
   end
 
   def index
+    @book = Book.new
     @books = Book.all
   end
 
