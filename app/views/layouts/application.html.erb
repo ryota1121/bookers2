@@ -12,49 +12,82 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class= "header row px-3 py-4">
-        <div class="col-2">
-          <div class="logo"><%= link_to 'Bookers', root_path, class: 'nav-link text-white' %></div>
-        </div>
-        <div class ="col-6 offset-4">
+      <nav class= "navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+        <div class="logo"><%= link_to 'Bookers', root_path, class: 'nav-link text-white' %></div>
+
+        <div class ="collapse navbar-collapse">
+          <ul class ="navbar-nav ml-auto">
           <div class = "row">
             <% if user_signed_in? %>
-            <div class="col-1">
-              <div class="header-content"><%= link_to 'Home', book_path(current_user), class: 'nav-link text-white' %></div>
-            </div>
-            <div class="col-1">
-              <div class="header-content"><%= link_to 'Users', users_path, class: 'nav-link text-white' %></div>
-            </div>
-            <div class="col-1">
-              <div class="header-content"><%= link_to 'Books', books_path, class: 'nav-link text-white' %></div>
-            </div>
-            <div class="col-1">
-              <div class="header-content"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %></div>
-            </div>
+            <li>
+              <div class="header-content">
+                <%= link_to user_path(current_user), class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-house"></i> Home
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="header-content">
+                <%= link_to users_path, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-users"></i> Users
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="header-content">
+                <%= link_to books_path, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-book-open"></i> Books
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="header-content">
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-right-from-bracket"></i> Log out
+                <% end %>
+              </div>
+            </li>
             <% else %>
-            <div class="col-1">
-              <div class="header-content"><%= link_to 'Home', root_path, class: 'nav-link text-white' %></div>
-            </div>
-            <div class="col-1">
-              <div class="header-content"><%= link_to 'About', about_path, class: 'nav-link text-white' %></div>
-            </div>
-            <div class="col-1">
-              <div class="header-content"><%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %></div>
-            </div>
-            <div class="col-1">
-              <div class="header-content"><%= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %></div>
-            </div>
+            <li>
+              <div class="header-content">
+                <%= link_to root_path, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-house"></i> Home
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div class="header-content">
+                <%= link_to about_path, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-link"></i> About
+                <% end %>
+                </div>
+            </li>
+            <li>
+              <div class="header-content">
+                <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-user-plus"></i> Sign up
+                <% end %>
+                </div>
+            </li>
+            <li>
+              <div class="header-content">
+                <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+                  <i class="fa-solid fa-right-to-bracket"></i> Log in
+                <% end %>
+                </div>
+            </li>
             <% end %>
           </div>
+          </ul>
         </div>
-      </div>
-    </div>
-  </body>
-    <main class="mb-auto">
+        </div>
+      </nav>
+
+    <main class="container">
       <%= yield %>
     </main>
-    <footer class="shadow-sm">
+    <footer class="container mt-5">
       <div class="row">
         <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>

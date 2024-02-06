@@ -1,8 +1,9 @@
-<div class="main row justify-content-center">
-  <div class="sidebar col-2">
-   
+<div class="row justify-content-center">
+  <div class="sidebar col-3">
+    <%= render 'users/show', user: @user %>
+    <%= render 'books/user_info', book: @book %>
   </div>
-  <div class="main-content col-5">
+  <div class="content col-8">
     <div class="row row-cols">
       <h2>Books</h2>
       <table class="table table-striped">
@@ -13,8 +14,8 @@
             <th>Opinion</th>
           </tr>
         </thead>
-    
-        <% @books.each do |book| %>    
+
+        <% @books.each do |book| %>
         <tbody>
           <tr>
             <td><%= image_tag book.user.get_profile_image(100,100) %></td>
@@ -25,20 +26,7 @@
           </tr>
         </tbody>
         <% end %>
-      </table> 
+      </table>
     </div>
   </div>
 </div>
-
-
-
-<% @books.each do |book| %>
-<div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <%= link_to book_path(book.id) do %>
-  <p><%= book.title %></p>
-  <% end %>
-  <p><%= book.body %></p>
-  <p><%= book.user.name %></p>
-</div>
-<% end %>
