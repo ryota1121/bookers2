@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h2>User Info</h2>
 <%= form_with model: @user do |f| %>
   <label for="inputName">Name</label><br>
@@ -8,3 +11,6 @@
   <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction"%><br>
   <%= f.submit "Update User",class: 'btn btn-secondary' %>
 <% end %>
+    </div>
+  </div>
+</div>
